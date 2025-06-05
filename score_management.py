@@ -138,12 +138,19 @@ class Qrcode:
         access_key = "STUDENT-SCORE-MANAGEMENT-2025,./@"
         img = qrcode.make(access_key)
         img.save("Student-score-management.png")
-while True:
-    Qrcode.gen_qr()
-    access = input("Scan QR Code to get access key: ").strip().upper()
-    if access == "STUDENT-SCORE-MANAGEMENT-2025,./@":
-        print("Access Granted")
+Qrcode.gen_qr()
+access = input("Scan qr code and enter access key: ").strip().upper()
+        
+if access == "STUDENT-SCORE-MANAGEMENT-2025,./@":
+    print("Access Granted")
+    while True:
         Menu.generate_menu()
-    else:
-        print("Access Denied")
+        
+        stop = int(input("Enter 0 to exit: "))
+        if stop == 0:
+            break
+        
+else:
+    print("Access Denied")
+    
         
